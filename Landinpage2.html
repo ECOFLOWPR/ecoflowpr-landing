@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre las baterías EcoFlow, una solución confiable y ecológica para tus necesidades de energía portátil.">
+    <title>Baterías EcoFlow - Energía Sostenible</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            color: #333;
+        }
+        header {
+            background-color: #00a69c;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .hero {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .hero h2 {
+            color: #00796b;
+        }
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .offer {
+            background-color: #00cec9;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .offer img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 1rem;
+        }
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        form input, form button {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #00a69c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        form button:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Baterías EcoFlow</h1>
+        <p>¡Energía portátil y sostenible al alcance de tus manos!</p>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h2>Soluciones de energía para tu estilo de vida</h2>
+            <p>EcoFlow te ofrece baterías de última generación, perfectas para el hogar, la oficina y aventuras al aire libre.</p>
+            <img src="Ultra_tarnfers.jpg" alt="Baterías EcoFlow">
+        </div>
+
+        <div class="offer">
+            <h2>¡Nuevas Placas Flexibles GRATIS!</h2>
+            <p>Ahorra más de $1,000 con nuestras ofertas por tiempo limitado.</p>
+            <img src="Oferta_Diembre.jpg" alt="Oferta de Placas Flexibles">
+        </div>
+
+        <form action="procesar-formulario.php" method="post">
+            <h3>¡Contáctanos para más información!</h3>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono">
+
+            <button type="submit">Quiero más información</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<!-- Archivo procesar-formulario.php -->
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
+
+    $to = "ecoflowpuertorico@gmail.com"; // Dirección de correo actualizada
+    $subject = "Nuevo registro desde la landing page";
+    $message = "Nombre: $nombre\nCorreo: $email\nTeléfono: $telefono";
+    $headers = "From: no-reply@tu-dominio.com";
+
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Mensaje enviado con éxito.";
+    } else {
+        echo "Hubo un error al enviar el mensaje.";
+    }
+}
+?>
